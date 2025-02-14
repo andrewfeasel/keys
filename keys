@@ -33,6 +33,10 @@ case $1 in
         printf "Tag\tKey\tValue\n"
         cat $keyfile
     ;;
+    *)
+	cat helpfile
+	exit 0
+    ;;
 esac
 exit 0
 
