@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Auth
+login=1
+while [ $login -eq 1 ]; do
+        echo "Enter password to continue..."
+        read -s password
+        if [ $password == $keys_passwd ]; then
+                login=0
+        else
+                echo 'Incorrect Password'
+        fi
+done
+chown $USER $keyfile
+chmod +rw $keyfile
+
+# Key management
+case $1 in
+    help)
+	cat helpfile
+	exit 0
+    ;;
+    get)
+        grep $2 $keyfile | cut -f2-3
+    ;;
+    add)
+        printf "%s\t%s\t%s\n" $2 $3 $4 >> $keyfile
+    ;;
+    edit)
+        nano $keyfile
+    ;;
+    list)
+        printf "Tag\tKey\tValue\n"
+        cat $keyfile
+    ;;
+esac
+exit 0
+

@@ -1,0 +1,14 @@
+Usage: keys {list|add|edit|help} [tag] [key] [value]
+
+list: Displays all tags/keys/values.
+ex: keys list
+
+add: Allows you to store a new tag with data.
+ex: keys add [tag] [key] [value]
+
+edit: Invokes nano on your keyfile (useful for debugging)
+ex: keys edit
+
+help: Displays this file
+
+Created by Andrew Feasel in 2025
